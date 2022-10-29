@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject bornParent;
     public GameObject zombiePrefab;
     public float createZombieTime;
+    private int zOrderIndex = 0;
     void Start()
     {
         instance = this;
@@ -23,19 +24,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void ChangeSunNum(int changeNum){
+    public void ChangeSunNum(int changeNum)
+    {
         sunNum += changeNum;
-        if(sunNum <= 0)
+        if (sunNum <= 0)
         {
             sunNum = 0;
         }
         // 阳光数量发生改变，通知卡片压黑等...
         UIManager.instance.UpdateUI();
 
-    } 
+    }
 
     public void CreateZombie()
     {
@@ -54,7 +56,9 @@ public class GameManager : MonoBehaviour
         Transform zombieLine = bornParent.transform.Find("born" + index.ToString());
         zombie.transform.parent = zombieLine;
         zombie.transform.localPosition = Vector3.zero;
-        
+        zombie.GetComponent<SpriteRenderer>().sortingOrder = zOrderIndex;
+        zOrderIndex += 1;
+
         // 再次启动定时器
         StartCoroutine(DalayCreateZombie());
     }

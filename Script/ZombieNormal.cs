@@ -68,9 +68,7 @@ public class ZombieNormal : MonoBehaviour
         if(other.tag == "Plant")
         {
             // 持续接触植物，造成伤害
-            print("INNNNNNNNNNNNN");
             damageTimer += Time.deltaTime;
-            print(damageTimer);
             if(damageTimer >= damageInterval)
             {
                 damageTimer = 0;

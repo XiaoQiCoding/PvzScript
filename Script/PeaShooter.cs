@@ -10,14 +10,17 @@ public class PeaShooter : Plant
     public GameObject bullet;
     public Transform bulletPos;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         currentHealth = health;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(! start)
+            return;
         timer += Time.deltaTime;
         if(timer >= interval)
         {

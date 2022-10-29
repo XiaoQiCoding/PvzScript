@@ -6,13 +6,12 @@ public class SunFlower : Plant
 {
     // Start is called before the first frame update
     public GameObject sunPrefab;
-    private Animator animator;
     public float readyTime;
     private float timer;
     private int sunNum;
-    void Start()
+    protected override void Start()
     {
-        animator = GetComponent<Animator>();
+        base.Start();
         timer = 0;
         sunNum = 0;
     }
@@ -20,6 +19,8 @@ public class SunFlower : Plant
     // Update is called once per frame
     void Update()
     {
+        if(! start)
+            return;
         timer += Time.deltaTime;
         if (timer > readyTime)
         {
