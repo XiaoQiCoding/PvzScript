@@ -35,7 +35,7 @@ public class Plant : MonoBehaviour
     }
 
     // 改变血量的方法提取到父类中
-    public float ChangeHealth(float num)
+    public virtual float ChangeHealth(float num)
     {
         currentHealth = Mathf.Clamp(currentHealth + num, 0, health);
         print(currentHealth);
