@@ -52,6 +52,8 @@ public class ProgressPanel : MonoBehaviour
         newFlag.GetComponent<RectTransform>().position = Flag.GetComponent<RectTransform>().position;
         // 设置位置
         newFlag.GetComponent<RectTransform>().position = new Vector2(originPosX - per * width + offset, newFlag.GetComponent<RectTransform>().position.y);
+
+        Head.transform.SetAsLastSibling();
     }
 
     // Update is called once per frame

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+[CreateAssetMenu(menuName = "XiaoQi/LevelData", fileName = "LevelData", order = 3)]
 public class LevelData : ScriptableObject
 {
     public List<LevelItem> LevelDataList = new List<LevelItem>();
