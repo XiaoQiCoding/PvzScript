@@ -20,12 +20,11 @@ public class AllCardPanel : MonoBehaviour
 
     public void InitCards()
     {
-        print("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
-        print(GameManager.instance.plantInfo) ;
         foreach (PlantInfoItem plantInfo in GameManager.instance.plantInfo.plantInfoList)
         {
             Transform cardParent = Bg.transform.Find("Card" + plantInfo.plantId);
             GameObject reallyCard = Instantiate(plantInfo.cardPrefab) as GameObject;
+            reallyCard.GetComponent<Card>().plantInfo = plantInfo;
             reallyCard.transform.SetParent(cardParent, false);
             reallyCard.transform.localPosition = Vector2.zero;
             reallyCard.name = "BeforeCard";
@@ -36,5 +35,10 @@ public class AllCardPanel : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnBtnStart()
+    {
+        GameManager.instance.GameReallyStart();
     }
 }

@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public Text sunNumText;
     public ProgressPanel progressPanel;
     public AllCardPanel allCardPanel;
+    public ChooseCardPanel chooseCardPanel;
     
     private void Awake() {
         instance = this;

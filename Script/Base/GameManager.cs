@@ -35,12 +35,17 @@ public class GameManager : MonoBehaviour
     private void GameStart()
     {
         UIManager.instance.InitUI();
-        gameStart = true;
+    }
+
+    public void GameReallyStart()
+    {
+        GameManager.instance.gameStart = true;
         CreateZombie();
         InvokeRepeating("CreateSunDown", 10, 10);
         // 播放BGM
         SoundManager.instance.PlayBGM(Globals.BGM1);
     }
+
     void ReadData()
     {
         // StartCoroutine(LoadTable());
